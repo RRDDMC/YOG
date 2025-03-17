@@ -8,7 +8,7 @@ Ce dossier est dédié à la création des textures. Vous trouverez plus bas la 
 Les textures sont spécifiques aux modèles qu'elles complètent. Vous trouverez ici une liste des modèles et leurs textures de repérage.
 
 ### Blocs
-![Modèle de blocs](blocs/BaseTextureModel.png)
+![Modèle de blocs](images/BaseTextureModel.png)
 
 ## Liste des blocs à créer
 - À venir...
