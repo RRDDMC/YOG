@@ -1,3 +1,6 @@
-dir/
-===
-sample.txt|0.0.1/sample.txt
+#
+=0.0.1/
+sample.txt
+#dir/
+here.txt:
+manifest.txt
