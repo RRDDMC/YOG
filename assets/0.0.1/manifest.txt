@@ -3,4 +3,4 @@
 sample.txt
 #dir/
 here.txt:
-manifest.txt
+-manifest.txt
