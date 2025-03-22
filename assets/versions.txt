@@ -1,1 +1,1 @@
-v0m0m1|v0m0m1/manifest.txt
+0.0.1|0.0.1/manifest.txt
