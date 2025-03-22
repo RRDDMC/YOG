@@ -1,6 +1,7 @@
 #
 =0.0.1/
 @main.py
+#textures/
 #textures/blocks/
 =textures/blocks/
 grassSummer.png
