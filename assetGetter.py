@@ -15,19 +15,23 @@ class getter():
             if len(line) == 2:
                 self.versions[line[0]] = line[1]
     def getStringFile(self, filePath):
-        response = requests.get(self.url + self.distantPath + filePath)
+        response = requests.get(self.url + self.distantPath + filePath, headers={"Cache-Control": "no-cache", "Pragma": "no-cache"})
         if response.status_code != 200:
-            raise Exception("{} -> {}".format(response.status_code, response.content))
+            raise Exception("{}; {} -> {}".format(self.distantPath + filePath, response.status_code, response.content))
         else:
             return response.text
     def getBytesFile(self, filePath):
-        response = requests.get(self.url + self.distantPath + filePath)
+        response = requests.get(self.url + self.distantPath + filePath, headers={"Cache-Control": "no-cache", "Pragma": "no-cache"})
         if response.status_code != 200:
-            raise Exception("{} -> {}".format(response.status_code, response.content))
+            raise Exception("{}; {} -> {}".format(self.distantPath + filePath, response.status_code, response.content))
         else:
             return response.content
     def getAssets(self, version, forceUpdate=False):
         forceNextUpdate = False
+        if not os.path.exists(self.localPath):
+            os.mkdir(self.localPath)
+        defaultPath = self.localPath
+        self.localPath += "{}/".format(version)
         if not os.path.exists(self.localPath):
             os.mkdir(self.localPath)
         self.distantPath = ""
@@ -42,14 +46,14 @@ class getter():
                 pass
             elif line[0] == "-":
                 if not f:
-                    raise SyntaxError("No file name befor {}".format(line))
+                    raise SyntaxError("No file name before {}".format(line))
                 if not os.path.exists(self.localPath + localPath + f) or forceUpdate or forceNextUpdate:
                     fContent = self.getBytesFile(line[1:])
                     f = open(self.localPath + localPath + f, "wb")
                     f.write(fContent)
                     f.close()
                     if forceNextUpdate:
-                    	forceNextUpdate = False
+                        forceNextUpdate = False
                 f = None
             elif line[0] == "#":
                 localPath = line[1:]
@@ -61,18 +65,25 @@ class getter():
                 if line[-1] == ":":
                     f = line[:-1]
                     if f[0] == "@":
-                    	forceNextUpdate = True
+                        forceNextUpdate = True
                 else:
                     f = line
                     if f[0] == "@":
-                    	f = f[1:]
-                    	forceNextUpdate= True
+                        f = f[1:]
+                        forceNextUpdate= True
                     if not os.path.exists(self.localPath + localPath + f) or forceUpdate or forceNextUpdate:
-                    	fContent = self.getBytesFile(f)
-                    	f = open(self.localPath + localPath + f, "wb")
-            	        f.write(fContent)
-            	        f.close()
-            	        f = None
-            	        if forceNextUpdate: forceNextUpdate = False
+                        fContent = self.getBytesFile(f)
+                        f = open(self.localPath + localPath + f, "wb")
+                        f.write(fContent)
+                        f.close()
+                        f = None
+                        if forceNextUpdate: forceNextUpdate = False
+        self.localPath = defaultPath
 
-a = getter("https://raw.githubusercontent.com/RRDDMC/YOG/main/assets/", localPath="data/")
+getter = getter("https://raw.githubusercontent.com/RRDDMC/YOG/main/assets/", localPath="assets/")
+getter.getAssets("0.0.1")
+
+f = open("assets/0.0.1/main.py", "r")
+code = f.read()
+f.close()
+exec(code)
