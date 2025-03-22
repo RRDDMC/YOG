@@ -1,6 +1,6 @@
 #
 =0.0.1/
-sample.txt
+@sample.txt
 #dir/
 here.txt:
 -manifest.txt
