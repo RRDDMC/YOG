@@ -4,6 +4,9 @@ from direct.showbase.ShowBase import ShowBase
 class MyApp(ShowBase):
 
 	def __init__(self):
+		import os
+		print(os.getcwd())
+		
 		ShowBase.__init__(self)
 
 		# Creating vertex data.
