@@ -2,7 +2,6 @@ from panda3d.core import GeomVertexData, GeomVertexFormat, Geom, GeomTriangles, 
 from direct.showbase.ShowBase import ShowBase
 
 class MyApp(ShowBase):
-
 	def __init__(self):
 		import os
 		print(os.getcwd())
@@ -144,7 +143,7 @@ class MyApp(ShowBase):
 		# Load texture.
 		tex1 = Texture("Texture")
 		#tex1.read('BaseTextureModel.png')
-		tex1.read('./assets/grassSummer.png')
+		tex1.read(os.getcwd() + '/assets/grassSummer.png')
 		tex1.setMagfilter(Texture.FTNearest)
 		tex1.setMinfilter(Texture.FTNearest)
 
