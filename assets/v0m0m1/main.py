@@ -138,7 +138,7 @@ class MyApp(ShowBase):
 		geom1.addPrimitive(prim_a)
 
 		# Create new geom state.
-		state_a = RenderState.make(TextureAttrib.make(tex1))
+		state_a = RenderState.make()
 
 		# Create geom node.
 		geom_node = GeomNode('Plane')
