@@ -143,7 +143,7 @@ class MyApp(ShowBase):
 		# Load texture.
 		tex1 = Texture("Texture")
 		#tex1.read('BaseTextureModel.png')
-		tex1.read(os.getcwd() + '/assets/grassSummer.png')
+		tex1.read('assets/v0m0m1/grassSummer.png')
 		tex1.setMagfilter(Texture.FTNearest)
 		tex1.setMinfilter(Texture.FTNearest)
 
