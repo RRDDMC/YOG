@@ -143,7 +143,7 @@ class MyApp(ShowBase):
 		# Load texture.
 		tex1 = Texture("Texture")
 		#tex1.read('BaseTextureModel.png')
-		tex1.read('assets/0.0.1/grassSummer.png')
+		tex1.read('assets/0.0.1/textures/blocks/grassSummer.png')
 		tex1.setMagfilter(Texture.FTNearest)
 		tex1.setMinfilter(Texture.FTNearest)
 
@@ -157,7 +157,7 @@ class MyApp(ShowBase):
 		# Attach geom node.
 		root = NodePath(geom_node)
 		root.reparent_to(render)
-		root.writeBamFile("test.bam")
+		root.writeBamFile("grassSummer.bam")
 
 app = MyApp()
 app.run()
