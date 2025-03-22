@@ -137,14 +137,6 @@ class MyApp(ShowBase):
 		geom1 = Geom(vdata)
 		geom1.addPrimitive(prim_a)
 
-
-		# Load texture.
-		tex1 = Texture("Texture")
-		#tex1.read('BaseTextureModel.png')
-		tex1.read('grassSummer.png')
-		tex1.setMagfilter(Texture.FTNearest)
-		tex1.setMinfilter(Texture.FTNearest)
-
 		# Create new geom state.
 		state_a = RenderState.make(TextureAttrib.make(tex1))
 
@@ -156,6 +148,8 @@ class MyApp(ShowBase):
 		root = NodePath(geom_node)
 		root.reparent_to(render)
 		root.writeBamFile("test.bam")
+
+		root.setTexture(self.loader.loadTexture("/grassSummer.png"))
 
 app = MyApp()
 app.run()
