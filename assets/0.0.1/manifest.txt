@@ -5,4 +5,4 @@
 #textures/blocks/
 =textures/blocks/
 grassSummer.png:
-grassSummer0.png
+-grassSummer0.png
