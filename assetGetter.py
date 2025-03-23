@@ -31,7 +31,6 @@ class getter():
         if not os.path.exists(self.localPath):
             os.mkdir(self.localPath)
         defaultPath = self.localPath
-        self.localPath += "{}/".format(version)
         if not os.path.exists(self.localPath):
             os.mkdir(self.localPath)
         self.distantPath = ""
@@ -79,6 +78,3 @@ class getter():
                         f = None
                         if forceNextUpdate: forceNextUpdate = False
         self.localPath = defaultPath
-
-getter = getter("https://raw.githubusercontent.com/RRDDMC/YOG/main/assets/")
-getter.getAssets("0.0.1")
