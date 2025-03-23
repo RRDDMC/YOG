@@ -157,7 +157,6 @@ class MyApp(ShowBase):
 		# Attach geom node.
 		root = NodePath(geom_node)
 		root.reparent_to(render)
-		root.writeBamFile("grassSummer.bam")
 
 app = MyApp()
 app.run()
