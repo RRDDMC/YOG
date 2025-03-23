@@ -1,8 +1,8 @@
 #0.0.1/
 =0.0.1/
 @main.py
-#textures/
-#textures/blocks/
+#0.0.1/textures/
+#0.0.1/textures/blocks/
 =textures/blocks/
 grassSummer.png:
 -grassSummer0.png
