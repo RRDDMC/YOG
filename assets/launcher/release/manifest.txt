@@ -1,1 +1,5 @@
-
+#launcher/
+=release/
+version.txt
+type.txt
+main.py
