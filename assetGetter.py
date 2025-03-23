@@ -40,7 +40,6 @@ class getter():
         manifest = manifest.split("\n")
         f = None
         for line in manifest:
-            print(line)
             if line == "":
                 pass
             elif line[0] == "-":
