@@ -40,7 +40,7 @@ class launcher():
         token = input("Token: ")
         if hashlib.sha256(token.replace("\n", "").encode("utf-8")).hexdigest() == '0ea0af45c5824d9f5e578f3717680ea6583ec933355a313f63c8d87f07e7ec9f':
             try:
-                asset.getAssets("dev")
+                asset.getAssets("dev", forceUpdate=True)
                 subprocess.Popen([os.getcwd() + "/yog", "assets/dev/main.py".format(args[0])], env={"PATH": os.getcwd() + "/lib"})
             except KeyError:
                 print("'dev' version is not available")
