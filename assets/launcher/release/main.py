@@ -1,6 +1,7 @@
 import assets.assetGetter as assetGetter
 import hashlib
 import os
+import platform
 import subprocess
 
 def content(path):
@@ -30,7 +31,10 @@ class launcher():
             if args[0] == "dev":
                 raise KeyError
             asset.getAssets(args[0])
-            subprocess.Popen([os.getcwd() + "/yog", "assets/{}/main.py".format(args[0])], env={"PYTHONPATH": os.getcwd() + "/lib"})
+            ext = ""
+            if platform.system() == "Windows":
+                ext = ".exe"
+            subprocess.Popen([os.getcwd() + "/yog" + ext, "assets/{}/main.py".format(args[0])], env={"PYTHONPATH": os.getcwd() + "/lib"})
         except IndexError:
             print("Missing VER argument")
         except KeyError:
@@ -41,7 +45,10 @@ class launcher():
         if hashlib.sha256(token.replace("\n", "").encode("utf-8")).hexdigest() == '0ea0af45c5824d9f5e578f3717680ea6583ec933355a313f63c8d87f07e7ec9f':
             try:
                 asset.getAssets("dev", forceUpdate=True)
-                subprocess.Popen([os.getcwd() + "/yog", "assets/dev/main.py".format(args[0])], env={"PATH": os.getcwd() + "/lib"})
+                ext = ""
+                if platform.system() == "Windows":
+                    ext = ".exe"
+                subprocess.Popen([os.getcwd() + "/yog" + ext, "assets/dev/main.py".format(args[0])], env={"PATH": os.getcwd() + "/lib"})
             except KeyError:
                 print("'dev' version is not available")
     def f_quit(self, *args):
