@@ -80,5 +80,5 @@ class getter():
                         if forceNextUpdate: forceNextUpdate = False
         self.localPath = defaultPath
 
-getter = getter("https://raw.githubusercontent.com/RRDDMC/YOG/main/assets/", localPath="")
+getter = getter("https://raw.githubusercontent.com/RRDDMC/YOG/main/assets/")
 getter.getAssets("0.0.1")
