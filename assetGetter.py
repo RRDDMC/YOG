@@ -82,8 +82,3 @@ class getter():
 
 getter = getter("https://raw.githubusercontent.com/RRDDMC/YOG/main/assets/", localPath="assets/")
 getter.getAssets("0.0.1")
-
-f = open("assets/0.0.1/main.py", "r")
-code = f.read()
-f.close()
-exec(code)
