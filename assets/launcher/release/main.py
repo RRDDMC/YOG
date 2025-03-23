@@ -30,7 +30,7 @@ class launcher():
             if args[0] == "dev":
                 raise KeyError
             asset.getAssets(args[0])
-            subprocess.Popen([os.getcwd() + "/yog", "assets/{}/main.py".format(args[0])], env={"PATH": os.getcwd() + "/lib"})
+            subprocess.Popen([os.getcwd() + "/yog", "assets/{}/main.py".format(args[0])], env={"PYTHONPATH": os.getcwd() + "/lib"})
         except IndexError:
             print("Missing VER argument")
         except KeyError:
