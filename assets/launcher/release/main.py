@@ -20,7 +20,7 @@ class launcher():
             print("{}: {}".format(command[2:], getattr(self, command).__doc__))
     def f_version(self, *args):
         """Show availables versions"""
-        print(asset.getStringFile("availableVerions.txt"))
+        print(asset.getStringFile("availableVersions.txt"))
     def f_offline(self, *args):
         """Show installed version"""
         if os.path.exists("assets/launcher/versions.txt"):
