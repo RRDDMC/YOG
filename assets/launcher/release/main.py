@@ -18,6 +18,9 @@ class launcher():
         commands = [elt for elt in dir(self) if elt[:2] == "f_"]
         for command in commands:
             print("{}: {}".format(command[2:], getattr(self, command).__doc__))
+    def f_version(self, *args):
+        """Show availables versions"""
+        print(asset.getStringFile("availablesVerions.txt"))
     def f_offline(self, *args):
         """Show installed version"""
         if os.path.exists("assets/launcher/versions.txt"):
